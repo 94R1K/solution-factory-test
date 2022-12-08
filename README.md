@@ -6,14 +6,12 @@
 [![Django REST Framework](https://img.shields.io/badge/-Django%20REST%20Framework-464646?style=flat-square&logo=Django%20REST%20Framework)](https://www.django-rest-framework.org/)
 [![PostgreSQL](https://img.shields.io/badge/-PostgreSQL-464646?style=flat-square&logo=PostgreSQL)](https://www.postgresql.org/)
 [![docker](https://img.shields.io/badge/-Docker-464646?style=flat-square&logo=docker)](https://www.docker.com/)
-[![GitHub%20Actions](https://img.shields.io/badge/-GitHub%20Actions-464646?style=flat-square&logo=GitHub%20actions)](https://github.com/features/actions)
-
 
 ## *Kак запустить*
 
 **Клонируем проект:**
 ```shell
-
+git clone https://gitlab.com/94R1K/solution-factory-test.git
 ```
 
 **Создаем виртуальное окружение:**
@@ -67,8 +65,8 @@ celery -A notification_service flower --port=5555
 ## *Установка проекта с помощью docker-compose*
 
 **Клонируем проект:**
-```
-
+```shell
+git clone https://gitlab.com/94R1K/solution-factory-test.git
 ```
 
 **В файл .evn добавляем ваш токен:**
@@ -82,23 +80,6 @@ docker-compose up -d
 ***
 
 ## *Развернутый проект можно посмотреть по ссылкам:*
-### При запуске через Docker:
-
-API проекта: **http://0.0.0.0:8000/api/** 
-
-Клиенты: **http://0.0.0.0:8000/api/clients/** 
-
-Сообщения: **http://0.0.0.0:8000/api/messages/** 
-
-Рассылки: **http://0.0.0.0:8000/api/mailings/** 
-
-Общая статистика по всем рассылкам: **http://0.0.0.0:8000/api/mailings/fullinfo/** 
-
-Детальная статистика по конкретной рассылке: **http://0.0.0.0:8000/api/mailings/1/info/** 
-
-Документация: **http://0.0.0.0:8000/docs/**
-
-### При обычном запуске:
 
 API проекта: **http://127.0.0.1:8000/api/** 
 

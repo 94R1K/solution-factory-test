@@ -12,7 +12,8 @@ services:
     build: .
     command: bash -c "python manage.py migrate --noinput && python manage.py runserver 0.0.0.0:8000"
     volumes:
-      - .:/app
+      - static_value:/app/static/
+      - media_value:/app/media/
     ports:
       - '8000:8000'
     depends_on:
@@ -26,7 +27,7 @@ services:
   celery:
     build: .
     restart: always
-    command: celery worker --app=notification_service --loglevel=info
+    command: celery worker --app=notification_test --loglevel=info
     volumes:
       - .:/app
     environment:
@@ -39,7 +40,7 @@ services:
   dashboard:
     container_name: dashboard
     build: .
-    command: flower --app=notification_service --port=5555 broker=redis://redis:6379/0
+    command: flower --app=notification_test --port=5555 broker=redis://redis:6379/0
     ports:
       - '5555:5555'
     environment:
@@ -51,3 +52,5 @@ services:
       - celery
 volumes:
   postgres_data:
+  static_value:
+  media_value:
