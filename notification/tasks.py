@@ -40,8 +40,8 @@ def send_message(self, data, client_id, mailing_id, url=URL, token=TOKEN):
             Message.objects.filter(
                 pk=data['id']).update(sending_status='Отправлено')
     else:
-        time = 24 - (int(now.time().strftime('%H:%M:%S')[:2]) -
-                     int(mail.time_start.strftime('%H:%M:%S')[:2]))
+        time = 24 - (int(now.time().strftime('%H:%M:%S')[:2]) - int(
+            mail.time_start.strftime('%H:%M:%S')[:2]))
         logger.info(f'ID сообщения: {data["id"]}, '
                     f'В данный момент нельзя отправить сообщение, '
                     f'перезапуск задачи через {60 * 60 * time} секунд.')
