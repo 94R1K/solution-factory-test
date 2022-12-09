@@ -43,4 +43,4 @@ jobs:
           run: |
             docker pull ${{ secrets.DOCKER_USERNAME }}/notification:latest
             docker-compose down
-            docker run -rm -d -p 8000:8000 ${{ secrets.DOCKER_USERNAME }}/notification:latest
+            docker-compose up -d
