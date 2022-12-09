@@ -11,8 +11,8 @@ def create_message(sender, instance, created, **kwargs):
     if created:
         mailing = Mailing.objects.filter(id=instance.id).first()
         clients = Client.objects.filter(
-            Q(mobile_operator_code=mailing.mobile_operator_code) |
-            Q(tag=mailing.tag)).all()
+            (Q(mobile_operator_code=mailing.mobile_operator_code) |
+             Q(tag=mailing.tag))).all()
 
         for client in clients:
             Message.objects.create(

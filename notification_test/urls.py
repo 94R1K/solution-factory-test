@@ -1,10 +1,9 @@
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import include, path
+from notification.views import ClientViewSet, MailingViewSet, MessageViewSet
 from rest_framework import routers
 
-from notification.views import ClientViewSet, MailingViewSet, MessageViewSet
 from .yasg import swaggerurlpatterns
-
 
 router = routers.DefaultRouter()
 router.register(r'clients', ClientViewSet)

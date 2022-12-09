@@ -78,8 +78,7 @@ class Mailing(models.Model):
         now = timezone.now()
         if self.date_start <= now <= self.date_end:
             return True
-        else:
-            return False
+        return False
 
     def __str__(self):
         return f'Рассылка {self.id} от {self.date_start}'

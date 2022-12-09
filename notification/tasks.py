@@ -5,6 +5,7 @@ import pytz
 import requests
 from celery.utils.log import get_task_logger
 from dotenv import load_dotenv
+
 from notification_test.celery import app
 
 from .models import Client, Mailing, Message
@@ -37,9 +38,7 @@ def send_message(self, data, client_id, mailing_id, url=URL, token=TOKEN):
             logger.info(f'ID сообщения: {data["id"]}, '
                         f'Отправка статуса: "Отправлено"')
             Message.objects.filter(
-                pk=data['id']).update(
-                sending_status='Отправлено'
-            )
+                pk=data['id']).update(sending_status='Отправлено')
     else:
         time = 24 - (int(now.time().strftime('%H:%M:%S')[:2]) -
                      int(mail.time_start.strftime('%H:%M:%S')[:2]))
